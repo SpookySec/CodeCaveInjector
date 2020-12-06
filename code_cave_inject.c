@@ -7,7 +7,6 @@
  *
  *        Version:  1.0
  *        Created:  11/27/2020 09:58:05 PM
- *       Revision:  none
  *       Compiler:  gcc
  *
  *         Author:  SPOOKY (@spooky_sec), https://discord.gg/UTVBvJs
@@ -118,11 +117,11 @@ int main(int argc, char **argv) {
         exit(1);
     }
 
+    inject(argv[1], &sc, &cc, &ehdr);
+    change_entry(argv[1], &cc);
+
 #ifdef DEBUG
     debug(argv[1], &sc, &cc, &ehdr);
 #endif
-
-    inject(argv[1], &sc, &cc, &ehdr);
-    change_entry(argv[1], &cc);
 
 }
